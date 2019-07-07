@@ -1,9 +1,9 @@
 package com.danix.code.smell.example001;
 
+import static org.hamcrest.CoreMatchers.is;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * @author danix

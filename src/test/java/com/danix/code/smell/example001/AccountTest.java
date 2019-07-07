@@ -1,7 +1,6 @@
 package com.danix.code.smell.example001;
 
 import static org.hamcrest.CoreMatchers.is;
-
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;

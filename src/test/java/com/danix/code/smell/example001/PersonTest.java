@@ -1,11 +1,9 @@
 package com.danix.code.smell.example001;
 
-import static org.hamcrest.CoreMatchers.is;
-
-import static org.junit.Assert.assertThat;
-
 import static com.danix.code.smell.example001.AccountTestUtils.getAccountByTypeAndMoney;
 import static com.danix.code.smell.example001.CustomerTestUtils.getPersonCustomer;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 

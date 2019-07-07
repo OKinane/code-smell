@@ -1,8 +1,8 @@
 package com.danix.code.smell.example001;
 
-import javax.annotation.Nonnull;
-
 import static com.google.common.base.Preconditions.checkNotNull;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author danix
