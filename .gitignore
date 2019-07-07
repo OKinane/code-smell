@@ -1,5 +1,20 @@
-.idea/
+# IDEA ignores
 *.iml
+*.ipr
+*.iws
+/.idea/*
+
+# IDEA Ignore exceptions
+!/.idea/vcs.xml
+!/.idea/fileTemplates/
+!/.idea/inspectionProfiles/
+!/.idea/scopes/
+!/.idea/codeStyles/
+!/.idea/encodings.xml
+!/.idea/copyright/
+!/.idea/compiler.xml
+!/.idea/misc.xml
+
 .classpath
 .project
 .settings/
