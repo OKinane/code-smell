@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 /**
  * @author danix
  */
-public class CustomerReport {
+class CustomerReport {
 
   private final Customer customer;
   private final Account account;

@@ -3,17 +3,12 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class Account {
+class Account {
 
+  private final AccountType type;
+  private final int daysOverdrawn;
   private String iban;
-
-  private AccountType type;
-
-  private int daysOverdrawn;
-
   private Money money;
-
-  private Customer customer;
 
   public Account(final AccountType type, final int daysOverdrawn) {
     super();
@@ -64,14 +59,6 @@ public class Account {
 
   public void setMoney(final Money money) {
     this.money = money;
-  }
-
-  public Customer getCustomer() {
-    return customer;
-  }
-
-  public void setCustomer(final Customer customer) {
-    this.customer = customer;
   }
 
   public AccountType getType() {

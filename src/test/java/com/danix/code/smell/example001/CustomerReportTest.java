@@ -13,7 +13,7 @@ import org.junit.Test;
 public class CustomerReportTest {
 
   @Test
-  public void testPrintCustomerDaysOverdrawn() throws Exception {
+  public void testPrintCustomerDaysOverdrawn() {
     Account account = getAccount(false);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
@@ -22,7 +22,7 @@ public class CustomerReportTest {
   }
 
   @Test
-  public void testPrintCustomerMoney() throws Exception {
+  public void testPrintCustomerMoney() {
     Account account = getAccount(false);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
@@ -31,7 +31,7 @@ public class CustomerReportTest {
   }
 
   @Test
-  public void testPrintCustomerAccountNormal() throws Exception {
+  public void testPrintCustomerAccountNormal() {
     Account account = getAccount(false);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
@@ -40,7 +40,7 @@ public class CustomerReportTest {
   }
 
   @Test
-  public void testPrintCustomerAccountPremium() throws Exception {
+  public void testPrintCustomerAccountPremium() {
     Account account = getAccount(true);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);

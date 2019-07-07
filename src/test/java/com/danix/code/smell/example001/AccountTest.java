@@ -3,20 +3,12 @@ package com.danix.code.smell.example001;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author danix
  */
 public class AccountTest {
-
-  private CustomerFactory customerFactory;
-
-  @Before
-  public void setUp() {
-    customerFactory = new CustomerFactory();
-  }
 
   @Test
   public void testBankchargePremiumLessThanAWeek() {

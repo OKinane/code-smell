@@ -5,7 +5,7 @@ package com.danix.code.smell.example001;
  */
 public class AccountType {
 
-  private boolean premium;
+  private final boolean premium;
 
   AccountType(boolean premium) {
     this.premium = premium;

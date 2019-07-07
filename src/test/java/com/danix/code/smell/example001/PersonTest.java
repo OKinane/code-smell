@@ -12,10 +12,10 @@ import org.junit.Test;
  */
 public class PersonTest {
 
-  public static final Money SOME_EURO = Money.newEuro(10);
+  private static final Money SOME_EURO = Money.newEuro(10);
 
   @Test
-  public void testWithdrawPersonWithNormalAccount() throws Exception {
+  public void testWithdrawPersonWithNormalAccount() {
     Account account = getAccountByTypeAndMoney(false, 34.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -23,7 +23,7 @@ public class PersonTest {
   }
 
   @Test
-  public void testWithdrawPersonWithNormalAccountAndOverdraft() throws Exception {
+  public void testWithdrawPersonWithNormalAccountAndOverdraft() {
     Account account = getAccountByTypeAndMoney(false, -10.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -31,7 +31,7 @@ public class PersonTest {
   }
 
   @Test
-  public void testWithdrawPersonWithPremiumAccount() throws Exception {
+  public void testWithdrawPersonWithPremiumAccount() {
     Account account = getAccountByTypeAndMoney(true, 34.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -39,7 +39,7 @@ public class PersonTest {
   }
 
   @Test
-  public void testWithdrawPersonWithPremiumAccountAndOverdraft() throws Exception {
+  public void testWithdrawPersonWithPremiumAccountAndOverdraft() {
     Account account = getAccountByTypeAndMoney(true, -10.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);

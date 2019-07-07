@@ -5,7 +5,7 @@ package com.danix.code.smell.example001;
  */
 public class Company extends Customer {
 
-  protected double companyOverdraftDiscount = 1;
+  private final double companyOverdraftDiscount;
 
   Company(final String name, final String email, final Account account,
       final double companyOverdraftDiscount) {

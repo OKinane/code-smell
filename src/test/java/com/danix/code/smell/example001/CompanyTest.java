@@ -15,7 +15,7 @@ public class CompanyTest {
   private static final Money SOME_EURO = Money.newEuro(10);
 
   @Test
-  public void testWithdrawCompanyWithNormalAccount() throws Exception {
+  public void testWithdrawCompanyWithNormalAccount() {
     Account account = getAccountByTypeAndMoney(false, 34);
     Customer customer = getCompanyCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -23,7 +23,7 @@ public class CompanyTest {
   }
 
   @Test
-  public void testWithdrawCompanyWithNormalAccountAndOverdraft() throws Exception {
+  public void testWithdrawCompanyWithNormalAccountAndOverdraft() {
     Account account = getAccountByTypeAndMoney(false, -10);
     Customer customer = getCompanyCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -31,7 +31,7 @@ public class CompanyTest {
   }
 
   @Test
-  public void testWithdrawCompanyWithPremiumAccount() throws Exception {
+  public void testWithdrawCompanyWithPremiumAccount() {
     Account account = getAccountByTypeAndMoney(true, 34);
     Customer customer = getCompanyCustomer(account);
     customer.withdraw(SOME_EURO);
@@ -39,7 +39,7 @@ public class CompanyTest {
   }
 
   @Test
-  public void testWithdrawCompanyWithPremiumAccountAndOverdraft() throws Exception {
+  public void testWithdrawCompanyWithPremiumAccountAndOverdraft() {
     Account account = getAccountByTypeAndMoney(true, -10);
     Customer customer = getCompanyCustomer(account);
     customer.withdraw(SOME_EURO);

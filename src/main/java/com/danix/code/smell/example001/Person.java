@@ -5,7 +5,7 @@ package com.danix.code.smell.example001;
  */
 public class Person extends Customer {
 
-  protected String surname;
+  private final String surname;
 
   Person(final String name, final String surname, final String email, final Account account) {
     super(name, email, account);

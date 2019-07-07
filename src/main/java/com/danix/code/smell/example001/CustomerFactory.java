@@ -3,7 +3,7 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class CustomerFactory {
+class CustomerFactory {
 
   public Customer createCompany(String name, String email, Account account,
       double companyOverdraftDiscount) {

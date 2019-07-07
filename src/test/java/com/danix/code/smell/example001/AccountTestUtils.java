@@ -3,7 +3,7 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class AccountTestUtils {
+class AccountTestUtils {
 
   static Account getAccountByTypeAndMoney(boolean premium, double money) {
     AccountType accountType = new AccountType(premium);

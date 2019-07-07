@@ -12,21 +12,21 @@ public class MoneyTest {
 
 
   @Test
-  public void testSubstract() throws Exception {
+  public void testSubstract() {
     Money difference = Money.newEuro(20.0).subtract(Money.newEuro(10.0));
     Assert.assertThat(difference.getAmount(), is(10.0));
     Assert.assertThat(difference.getCurrency(), is(Money.EUR_CURRENCY));
   }
 
   @Test
-  public void testSubstractNegative() throws Exception {
+  public void testSubstractNegative() {
     Money difference = Money.newEuro(20.0).subtract(Money.newEuro(100.0));
     Assert.assertThat(difference.getAmount(), is(-80.0));
     Assert.assertThat(difference.getCurrency(), is(Money.EUR_CURRENCY));
   }
 
   @Test(expected = RuntimeException.class)
-  public void testSubstractDifferentCurrencies() throws Exception {
+  public void testSubstractDifferentCurrencies() {
     Money.newEuro(20.0).subtract(Money.newInstance(10.0, "USD"));
   }
 }
