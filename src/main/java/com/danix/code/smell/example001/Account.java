@@ -21,7 +21,7 @@ public class Account {
     this.daysOverdrawn = daysOverdrawn;
   }
 
-  public double bankcharge() {
+  public double bankCharge() {
     double result = 4.5;
 
     result += overdraftCharge();
@@ -82,8 +82,8 @@ public class Account {
     return money.getAmount() < 0;
   }
 
-  public void substract(final Money money) {
-    this.money = this.money.substract(money);
+  public void subtract(final Money money) {
+    this.money = this.money.subtract(money);
   }
 
   public double getMoneyAmount() {

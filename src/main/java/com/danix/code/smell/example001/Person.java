@@ -16,19 +16,19 @@ public class Person extends Customer {
   public void withdraw(final Money money) {
     if (account.getType().isPremium()) {
       if (account.isOverdraft()) {
-        account.substract(
+        account.subtract(
             Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
                 money.getCurrency()));
       } else {
-        account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
       }
     } else {
       if (account.isOverdraft()) {
-        account.substract(
+        account.subtract(
             Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
                 money.getCurrency()));
       } else {
-        account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
       }
     }
   }

@@ -21,13 +21,13 @@ public class AccountTest {
   @Test
   public void testBankchargePremiumLessThanAWeek() {
     Account account = getPremiumAccount(5);
-    assertThat(account.bankcharge(), is(14.5));
+    assertThat(account.bankCharge(), is(14.5));
   }
 
   @Test
   public void testBankchargePremiumMoreThanAWeek() {
     Account account = getPremiumAccount(9);
-    assertThat(account.bankcharge(), is(16.5));
+    assertThat(account.bankCharge(), is(16.5));
   }
 
   @Test
