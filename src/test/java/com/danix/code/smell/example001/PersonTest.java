@@ -10,41 +10,41 @@ import static com.danix.code.smell.example001.CustomerTestUtils.getPersonCustome
 import org.junit.Test;
 
 /**
- * @author  danix
+ * @author danix
  */
 public class PersonTest {
 
-    public static final Money SOME_EURO = Money.newEuro(10);
+  public static final Money SOME_EURO = Money.newEuro(10);
 
-    @Test
-    public void testWithdrawPersonWithNormalAccount() throws Exception {
-        Account account = getAccountByTypeAndMoney(false, 34.0);
-        Customer customer = getPersonCustomer(account);
-        customer.withdraw(SOME_EURO);
-        assertThat(account.getMoneyAmount(), is(24.0));
-    }
+  @Test
+  public void testWithdrawPersonWithNormalAccount() throws Exception {
+    Account account = getAccountByTypeAndMoney(false, 34.0);
+    Customer customer = getPersonCustomer(account);
+    customer.withdraw(SOME_EURO);
+    assertThat(account.getMoneyAmount(), is(24.0));
+  }
 
-    @Test
-    public void testWithdrawPersonWithNormalAccountAndOverdraft() throws Exception {
-        Account account = getAccountByTypeAndMoney(false, -10.0);
-        Customer customer = getPersonCustomer(account);
-        customer.withdraw(SOME_EURO);
-        assertThat(account.getMoneyAmount(), is(-22.0));
-    }
+  @Test
+  public void testWithdrawPersonWithNormalAccountAndOverdraft() throws Exception {
+    Account account = getAccountByTypeAndMoney(false, -10.0);
+    Customer customer = getPersonCustomer(account);
+    customer.withdraw(SOME_EURO);
+    assertThat(account.getMoneyAmount(), is(-22.0));
+  }
 
-    @Test
-    public void testWithdrawPersonWithPremiumAccount() throws Exception {
-        Account account = getAccountByTypeAndMoney(true, 34.0);
-        Customer customer = getPersonCustomer(account);
-        customer.withdraw(SOME_EURO);
-        assertThat(account.getMoneyAmount(), is(24.0));
-    }
+  @Test
+  public void testWithdrawPersonWithPremiumAccount() throws Exception {
+    Account account = getAccountByTypeAndMoney(true, 34.0);
+    Customer customer = getPersonCustomer(account);
+    customer.withdraw(SOME_EURO);
+    assertThat(account.getMoneyAmount(), is(24.0));
+  }
 
-    @Test
-    public void testWithdrawPersonWithPremiumAccountAndOverdraft() throws Exception {
-        Account account = getAccountByTypeAndMoney(true, -10.0);
-        Customer customer = getPersonCustomer(account);
-        customer.withdraw(SOME_EURO);
-        assertThat(account.getMoneyAmount(), is(-21.0));
-    }
+  @Test
+  public void testWithdrawPersonWithPremiumAccountAndOverdraft() throws Exception {
+    Account account = getAccountByTypeAndMoney(true, -10.0);
+    Customer customer = getPersonCustomer(account);
+    customer.withdraw(SOME_EURO);
+    assertThat(account.getMoneyAmount(), is(-21.0));
+  }
 }

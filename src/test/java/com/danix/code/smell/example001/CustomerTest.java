@@ -1,6 +1,8 @@
 package com.danix.code.smell.example001;
 
 /**
- * @author  danix
+ * @author danix
  */
-public class CustomerTest { }
+public class CustomerTest {
+
+}

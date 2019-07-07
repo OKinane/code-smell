@@ -1,37 +1,40 @@
 package com.danix.code.smell.example001;
 
 /**
- * @author  danix
+ * @author danix
  */
 public class Person extends Customer {
-    protected String surname;
 
-    Person(final String name, final String surname, final String email, final Account account) {
-        super(name, email, account);
-        this.surname = surname;
-    }
+  protected String surname;
 
-    @Override
-    public void withdraw(final Money money) {
-        if (account.getType().isPremium()) {
-            if (account.isOverdraft()) {
-                account.substract(Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
-                        money.getCurrency()));
-            } else {
-                account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
-            }
-        } else {
-            if (account.isOverdraft()) {
-                account.substract(Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
-                        money.getCurrency()));
-            } else {
-                account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
-            }
-        }
-    }
+  Person(final String name, final String surname, final String email, final Account account) {
+    super(name, email, account);
+    this.surname = surname;
+  }
 
-    @Override
-    protected String getFullName() {
-        return name + " " + surname + " ";
+  @Override
+  public void withdraw(final Money money) {
+    if (account.getType().isPremium()) {
+      if (account.isOverdraft()) {
+        account.substract(
+            Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
+                money.getCurrency()));
+      } else {
+        account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+      }
+    } else {
+      if (account.isOverdraft()) {
+        account.substract(
+            Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
+                money.getCurrency()));
+      } else {
+        account.substract(Money.newInstance(money.getAmount(), money.getCurrency()));
+      }
     }
+  }
+
+  @Override
+  protected String getFullName() {
+    return name + " " + surname + " ";
+  }
 }
