@@ -42,6 +42,6 @@ public class Company extends Customer {
 
   @Override
   protected String getFullName() {
-    return name;
+    return name + " ";
   }
 }
