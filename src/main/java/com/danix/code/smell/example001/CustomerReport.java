@@ -18,12 +18,12 @@ class CustomerReport {
   }
 
   public String printCustomerDaysOverdrawn() {
-    return String.format("%sAccount: IBAN: %s, Days Overdrawn: %s",
+    return String.format("%s Account: IBAN: %s, Days Overdrawn: %s",
         customer.getFullName(), account.getIban(), account.getDaysOverdrawn());
   }
 
   public String printCustomerMoney() {
-    return String.format("%sAccount: IBAN: %s, Money: %.1f",
+    return String.format("%s Account: IBAN: %s, Money: %.1f",
         customer.getFullName(), account.getIban(), account.getMoneyAmount());
   }
 

@@ -26,6 +26,6 @@ public class Person extends Customer {
 
   @Override
   protected String getFullName() {
-    return name + " " + surname + " ";
+    return name + " " + surname;
   }
 }
