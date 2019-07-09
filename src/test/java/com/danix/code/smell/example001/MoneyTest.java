@@ -15,18 +15,18 @@ public class MoneyTest {
   public void testSubstract() {
     Money difference = Money.newEuro(20.0).subtract(Money.newEuro(10.0));
     Assert.assertThat(difference.getAmount(), is(10.0));
-    Assert.assertThat(difference.getCurrency(), is(Money.EUR_CURRENCY));
+    Assert.assertThat(difference.getCurrency(), is(Currency.EUR));
   }
 
   @Test
   public void testSubstractNegative() {
     Money difference = Money.newEuro(20.0).subtract(Money.newEuro(100.0));
     Assert.assertThat(difference.getAmount(), is(-80.0));
-    Assert.assertThat(difference.getCurrency(), is(Money.EUR_CURRENCY));
+    Assert.assertThat(difference.getCurrency(), is(Currency.EUR));
   }
 
   @Test(expected = RuntimeException.class)
   public void testSubstractDifferentCurrencies() {
-    Money.newEuro(20.0).subtract(Money.newInstance(10.0, "USD"));
+    Money.newEuro(20.0).subtract(Money.newInstance(10.0, Currency.USD));
   }
 }

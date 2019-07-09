@@ -9,29 +9,27 @@ import javax.annotation.Nonnull;
  */
 public class Money {
 
-  public static final String EUR_CURRENCY = "EUR";
   private final double amount;
-  private final String currency;
+  private final Currency currency;
 
-  private Money(double amount, @Nonnull String currency) {
+  private Money(double amount, Currency currency) {
     this.amount = amount;
-    this.currency = checkNotNull(currency);
+    this.currency = currency;
   }
 
-  public static Money newInstance(double amount, @Nonnull String currency) {
+  public static Money newInstance(double amount, Currency currency) {
     return new Money(amount, currency);
   }
 
   public static Money newEuro(double amount) {
-    return new Money(amount, EUR_CURRENCY);
+    return new Money(amount, Currency.EUR);
   }
 
   public double getAmount() {
     return amount;
   }
 
-  @Nonnull
-  public String getCurrency() {
+  public Currency getCurrency() {
     return currency;
   }
 
