@@ -14,22 +14,13 @@ public class Person extends Customer {
 
   @Override
   public void withdraw(final Money money) {
-    if (account.getType().isPremium()) {
-      if (account.isOverdraft()) {
-        account.subtract(
-            Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
-                money.getCurrency()));
-      } else {
-        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
-      }
+    if (account.isOverdraft()) {
+      double overdraftFees = money.getAmount() * account.overdraftFee();
+      account.subtract(
+          Money.newInstance(money.getAmount() + overdraftFees,
+              money.getCurrency()));
     } else {
-      if (account.isOverdraft()) {
-        account.subtract(
-            Money.newInstance(money.getAmount() + money.getAmount() * account.overdraftFee(),
-                money.getCurrency()));
-      } else {
-        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
-      }
+      account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
     }
   }
 

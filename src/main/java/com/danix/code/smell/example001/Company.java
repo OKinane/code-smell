@@ -15,33 +15,26 @@ public class Company extends Customer {
 
   @Override
   public void withdraw(final Money money) {
-    if (account.getType().isPremium()) {
-      if (account.isOverdraft()) {
-
-        // 50 percent discount for overdraft for premium account
-        account.subtract(Money.newInstance(
-            money.getAmount()
-                + money.getAmount() * account.overdraftFee() * companyOverdraftDiscount / 2,
-            money.getCurrency()));
-      } else {
-        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
-      }
+    Money moneyToSubtract;
+    if (account.isOverdraft()) {
+      moneyToSubtract = Money.newInstance(
+          money.getAmount() + getOverdraftFees(money),
+          money.getCurrency());
     } else {
-      if (account.isOverdraft()) {
-
-        // no discount for overdraft for not premium account
-        account.subtract(Money.newInstance(
-            money.getAmount() + money.getAmount() * account.overdraftFee()
-                * companyOverdraftDiscount,
-            money.getCurrency()));
-      } else {
-        account.subtract(Money.newInstance(money.getAmount(), money.getCurrency()));
-      }
+      moneyToSubtract = money;
     }
+    account.subtract(moneyToSubtract);
   }
 
   @Override
   protected String getFullName() {
     return name + " ";
+  }
+
+  private double getOverdraftFees(final Money money) {
+    int overdraftDiscountDivider = account.getType().isPremium() ? 2 : 1;
+    return money.getAmount()
+        * account.overdraftFee()
+        * companyOverdraftDiscount / overdraftDiscountDivider;
   }
 }

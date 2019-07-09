@@ -18,28 +18,22 @@ class CustomerReport {
   }
 
   public String printCustomerDaysOverdrawn() {
-    String fullName = customer.getFullName();
-
-    String accountDescription = "Account: IBAN: " + account.getIban() + ", Days Overdrawn: "
-        + account.getDaysOverdrawn();
-    return fullName + accountDescription;
+    return String.format("%sAccount: IBAN: %s, Days Overdrawn: %s",
+        customer.getFullName(), account.getIban(), account.getDaysOverdrawn());
   }
 
   public String printCustomerMoney() {
-    String fullName = customer.getFullName();
-    String accountDescription = "";
-    accountDescription +=
-        "Account: IBAN: " + account.getIban() + ", Money: " + account.getMoneyAmount();
-    return fullName + accountDescription;
+    return String.format("%sAccount: IBAN: %s, Money: %.1f",
+        customer.getFullName(), account.getIban(), account.getMoneyAmount());
   }
 
   public String printCustomerAccount() {
-    return "Account: IBAN: " + account.getIban() + ", Money: " + account.getMoneyAmount()
-        + ", Account type: "
-        + account.getType();
+    return String.format("Account: IBAN: %s, Money: %.1f, Account type: %s",
+        account.getIban(), account.getMoneyAmount(), account.getType());
   }
 
   public String printCustomer() {
-    return customer.getName() + " " + customer.getEmail();
+    return String.format("%s %s",
+        customer.getName(), customer.getEmail());
   }
 }
