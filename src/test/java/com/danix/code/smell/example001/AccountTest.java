@@ -33,15 +33,15 @@ public class AccountTest {
   }
 
   @Test
-  public void testOverdraftFeePremium() {
-    Account account = getPremiumAccount(9);
-    assertThat(account.overdraftFee(), is(0.10));
-  }
-
-  @Test
   public void testOverdraftFeeNotPremium() {
     Account account = getNormalAccount(0);
     assertThat(account.overdraftFee(), is(0.20));
+  }
+
+  @Test
+  public void testOverdraftFeePremium() {
+    Account account = getPremiumAccount(9);
+    assertThat(account.overdraftFee(), is(0.10));
   }
 
   private Account getNormalAccount(final int daysOverdrawn) {

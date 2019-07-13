@@ -6,7 +6,7 @@ package com.danix.code.smell.example001;
 class CustomerFactory {
 
   public Customer createCompany(String name, String email, Account account,
-      double companyOverdraftDiscount) {
+                                double companyOverdraftDiscount) {
     return new Company(name, email, account, companyOverdraftDiscount);
   }
 

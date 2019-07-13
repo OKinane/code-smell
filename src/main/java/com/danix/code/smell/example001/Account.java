@@ -21,18 +21,6 @@ class Account {
     return BASE_BANK_CHARGE + overdraftCharge();
   }
 
-  private double overdraftCharge() {
-    if (type.isPremium()) {
-      return 10 + Math.max(0, getDaysOverdrawn() - 7);
-    } else {
-      return getDaysOverdrawn() * 1.75;
-    }
-  }
-
-  public double overdraftFee() {
-    return type.isPremium() ? 0.10 : 0.20;
-  }
-
   public int getDaysOverdrawn() {
     return daysOverdrawn;
   }
@@ -45,8 +33,8 @@ class Account {
     this.iban = iban;
   }
 
-  public void setMoney(final Money money) {
-    this.money = money;
+  public double getMoneyAmount() {
+    return money.getAmount();
   }
 
   public AccountType getType() {
@@ -57,11 +45,23 @@ class Account {
     return money.getAmount() < 0;
   }
 
+  public double overdraftFee() {
+    return type.isPremium() ? 0.10 : 0.20;
+  }
+
+  public void setMoney(final Money money) {
+    this.money = money;
+  }
+
   public void subtract(final Money money) {
     this.money = this.money.subtract(money);
   }
 
-  public double getMoneyAmount() {
-    return money.getAmount();
+  private double overdraftCharge() {
+    if (type.isPremium()) {
+      return 10 + Math.max(0, getDaysOverdrawn() - 7);
+    } else {
+      return getDaysOverdrawn() * 1.75;
+    }
   }
 }

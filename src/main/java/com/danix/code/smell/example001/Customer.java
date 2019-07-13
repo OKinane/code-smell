@@ -15,7 +15,9 @@ public abstract class Customer {
     this.account = account;
   }
 
-  public abstract void withdraw(Money money);
+  public String getEmail() {
+    return email;
+  }
 
   protected abstract String getFullName();
 
@@ -23,8 +25,6 @@ public abstract class Customer {
     return name;
   }
 
-  public String getEmail() {
-    return email;
-  }
+  public abstract void withdraw(Money money);
 
 }

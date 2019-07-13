@@ -17,23 +17,22 @@ class CustomerReport {
     this.account = checkNotNull(account);
   }
 
-  public String printCustomerDaysOverdrawn() {
-    return String.format("%s Account: IBAN: %s, Days Overdrawn: %s",
-        customer.getFullName(), account.getIban(), account.getDaysOverdrawn());
-  }
-
-  public String printCustomerMoney() {
-    return String.format("%s Account: IBAN: %s, Money: %.1f",
-        customer.getFullName(), account.getIban(), account.getMoneyAmount());
+  public String printCustomer() {
+    return String.format("%s %s", customer.getName(), customer.getEmail());
   }
 
   public String printCustomerAccount() {
-    return String.format("Account: IBAN: %s, Money: %.1f, Account type: %s",
-        account.getIban(), account.getMoneyAmount(), account.getType());
+    return String.format("Account: IBAN: %s, Money: %.1f, Account type: %s", account.getIban(),
+                         account.getMoneyAmount(), account.getType());
   }
 
-  public String printCustomer() {
-    return String.format("%s %s",
-        customer.getName(), customer.getEmail());
+  public String printCustomerDaysOverdrawn() {
+    return String.format("%s Account: IBAN: %s, Days Overdrawn: %s", customer.getFullName(),
+                         account.getIban(), account.getDaysOverdrawn());
+  }
+
+  public String printCustomerMoney() {
+    return String.format("%s Account: IBAN: %s, Money: %.1f", customer.getFullName(),
+                         account.getIban(), account.getMoneyAmount());
   }
 }
