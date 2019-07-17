@@ -3,19 +3,19 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class Company extends Customer {
+class Company extends Customer {
 
   private final double companyOverdraftDiscount;
 
-  Company(final String name, final String email, final Account account,
-          final double companyOverdraftDiscount) {
+  public Company(final String name, final String email, final Account account,
+                 final double companyOverdraftDiscount) {
     super(name, email, account);
     this.companyOverdraftDiscount = companyOverdraftDiscount;
   }
 
   @Override
   protected String getFullName() {
-    return name;
+    return getName();
   }
 
   @Override

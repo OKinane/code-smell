@@ -3,11 +3,11 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class AccountType {
+class AccountType {
 
   private final boolean premium;
 
-  AccountType(boolean premium) {
+  public AccountType(boolean premium) {
     this.premium = premium;
   }
 

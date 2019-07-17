@@ -3,18 +3,19 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public class Person extends Customer {
+class Person extends Customer {
 
   private final String surname;
 
-  Person(final String name, final String surname, final String email, final Account account) {
+  public Person(final String name, final String surname, final String email,
+                final Account account) {
     super(name, email, account);
     this.surname = surname;
   }
 
   @Override
   protected String getFullName() {
-    return name + " " + surname;
+    return getName() + " " + surname;
   }
 
   @Override

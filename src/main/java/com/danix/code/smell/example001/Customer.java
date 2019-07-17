@@ -3,13 +3,13 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-public abstract class Customer {
+abstract class Customer {
 
-  final String name;
-  final Account account;
+  public final Account account;
+  private final String name;
   private final String email;
 
-  Customer(final String name, final String email, final Account account) {
+  public Customer(final String name, final String email, final Account account) {
     this.name = name;
     this.email = email;
     this.account = account;

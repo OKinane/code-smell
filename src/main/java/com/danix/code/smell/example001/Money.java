@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 /**
  * @author danix
  */
-public class Money {
+class Money {
 
   private final double amount;
   private final Currency currency;
