@@ -18,6 +18,7 @@ class Company extends Customer {
     return getName();
   }
 
+  @Override
   protected double getOverdraftFees(final Money money) {
     int overdraftDiscountDivider = account.getType() == AccountType.premium ? 2 : 1;
     return money.getAmount() * account.overdraftFee() * companyOverdraftDiscount

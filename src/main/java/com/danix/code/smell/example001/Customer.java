@@ -19,13 +19,9 @@ abstract class Customer {
     return email;
   }
 
-  public abstract String getFullName();
-
   public String getName() {
     return name;
   }
-
-  protected abstract double getOverdraftFees(final Money money);
 
   final public void withdraw(final Money money) {
     Money moneyToSubtract;
@@ -37,5 +33,9 @@ abstract class Customer {
     }
     account.subtract(moneyToSubtract);
   }
+
+  public abstract String getFullName();
+
+  protected abstract double getOverdraftFees(final Money money);
 
 }
