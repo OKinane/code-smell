@@ -7,7 +7,7 @@ class AccountType {
 
   private final boolean premium;
 
-  public AccountType(boolean premium) {
+  public AccountType(final boolean premium) {
     this.premium = premium;
   }
 

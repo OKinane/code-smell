@@ -5,11 +5,11 @@ package com.danix.code.smell.example001;
  */
 abstract class Customer {
 
-  public final Account account;
+  protected final Account account;
   private final String name;
   private final String email;
 
-  public Customer(final String name, final String email, final Account account) {
+  protected Customer(final String name, final String email, final Account account) {
     this.name = name;
     this.email = email;
     this.account = account;
@@ -19,12 +19,12 @@ abstract class Customer {
     return email;
   }
 
-  protected abstract String getFullName();
+  public abstract String getFullName();
 
   public String getName() {
     return name;
   }
 
-  public abstract void withdraw(Money money);
+  public abstract void withdraw(final Money money);
 
 }

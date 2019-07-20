@@ -7,16 +7,16 @@ import javax.annotation.Nonnull;
 /**
  * @author danix
  */
-class Money {
+final class Money {
 
   private final double amount;
   private final Currency currency;
 
-  public static Money newEuro(double amount) {
+  public static Money newEuro(final double amount) {
     return new Money(amount, Currency.EUR);
   }
 
-  public static Money newInstance(double amount, Currency currency) {
+  public static Money newInstance(final double amount, final Currency currency) {
     return new Money(amount, currency);
   }
 
@@ -29,7 +29,7 @@ class Money {
   }
 
   @Nonnull
-  public Money subtract(@Nonnull Money money) {
+  public Money subtract(@Nonnull final Money money) {
     checkNotNull(money);
     if (!money.getCurrency().equals(currency)) {
       throw new RuntimeException("Can't subtract different currencies!");
@@ -37,7 +37,7 @@ class Money {
     return new Money(this.amount - money.amount, currency);
   }
 
-  private Money(double amount, Currency currency) {
+  private Money(final double amount, final Currency currency) {
     this.amount = amount;
     this.currency = currency;
   }

@@ -14,7 +14,7 @@ class Person extends Customer {
   }
 
   @Override
-  protected String getFullName() {
+  public String getFullName() {
     return getName() + " " + surname;
   }
 
