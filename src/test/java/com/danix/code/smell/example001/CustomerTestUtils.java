@@ -8,9 +8,8 @@ class CustomerTestUtils {
   private static final CustomerFactory customerFactory = new CustomerFactory();
 
   static Account getAccount(final AccountType accountType) {
-    Account account = new Account(accountType, 9);
+    Account account = new Account(accountType, Money.newEuro(34.0), 9);
     account.setIban("RO023INGB434321431241");
-    account.setMoney(Money.newEuro(34.0));
     return account;
   }
 

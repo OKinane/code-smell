@@ -11,9 +11,10 @@ class Account {
   private String iban;
   private Money money;
 
-  public Account(final AccountType type, final int daysOverdrawn) {
+  public Account(final AccountType type, final Money money, final int daysOverdrawn) {
     super();
     this.type = type;
+    this.money = money;
     this.daysOverdrawn = daysOverdrawn;
   }
 
@@ -47,10 +48,6 @@ class Account {
 
   public double overdraftFee() {
     return type == AccountType.premium ? 0.10 : 0.20;
-  }
-
-  public void setMoney(final Money money) {
-    this.money = money;
   }
 
   public void subtract(final Money money) {
