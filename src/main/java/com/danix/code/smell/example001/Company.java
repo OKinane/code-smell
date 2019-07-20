@@ -18,19 +18,7 @@ class Company extends Customer {
     return getName();
   }
 
-  @Override
-  public void withdraw(final Money money) {
-    Money moneyToSubtract;
-    if (account.isOverdraft()) {
-      moneyToSubtract = Money.newInstance(money.getAmount() + getOverdraftFees(money),
-                                          money.getCurrency());
-    } else {
-      moneyToSubtract = money;
-    }
-    account.subtract(moneyToSubtract);
-  }
-
-  private double getOverdraftFees(final Money money) {
+  protected double getOverdraftFees(final Money money) {
     int overdraftDiscountDivider = account.getType().isPremium() ? 2 : 1;
     return money.getAmount() * account.overdraftFee() * companyOverdraftDiscount
         / overdraftDiscountDivider;

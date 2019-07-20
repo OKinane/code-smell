@@ -25,6 +25,17 @@ abstract class Customer {
     return name;
   }
 
-  public abstract void withdraw(final Money money);
+  protected abstract double getOverdraftFees(final Money money);
+
+  final public void withdraw(final Money money) {
+    Money moneyToSubtract;
+    if (account.isOverdraft()) {
+      moneyToSubtract = Money.newInstance(money.getAmount() + getOverdraftFees(money),
+                                          money.getCurrency());
+    } else {
+      moneyToSubtract = money;
+    }
+    account.subtract(moneyToSubtract);
+  }
 
 }
