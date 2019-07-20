@@ -16,7 +16,7 @@ public class PersonTest {
 
   @Test
   public void testWithdrawPersonWithNormalAccount() {
-    Account account = getAccountByTypeAndMoney(false, 34.0);
+    Account account = getAccountByTypeAndMoney(AccountType.normal, 34.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
@@ -24,7 +24,7 @@ public class PersonTest {
 
   @Test
   public void testWithdrawPersonWithNormalAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(false, -10.0);
+    Account account = getAccountByTypeAndMoney(AccountType.normal, -10.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-22.0));
@@ -32,7 +32,7 @@ public class PersonTest {
 
   @Test
   public void testWithdrawPersonWithPremiumAccount() {
-    Account account = getAccountByTypeAndMoney(true, 34.0);
+    Account account = getAccountByTypeAndMoney(AccountType.premium, 34.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
@@ -40,7 +40,7 @@ public class PersonTest {
 
   @Test
   public void testWithdrawPersonWithPremiumAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(true, -10.0);
+    Account account = getAccountByTypeAndMoney(AccountType.premium, -10.0);
     Customer customer = getPersonCustomer(account);
     customer.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-21.0));

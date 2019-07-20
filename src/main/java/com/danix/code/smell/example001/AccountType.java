@@ -3,20 +3,7 @@ package com.danix.code.smell.example001;
 /**
  * @author danix
  */
-class AccountType {
+enum AccountType {
+  premium, normal
 
-  private final boolean premium;
-
-  public AccountType(final boolean premium) {
-    this.premium = premium;
-  }
-
-  public boolean isPremium() {
-    return premium;
-  }
-
-  @Override
-  public String toString() {
-    return premium ? "premium" : "normal";
-  }
 }

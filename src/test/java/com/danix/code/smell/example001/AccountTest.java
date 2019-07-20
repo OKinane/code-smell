@@ -45,12 +45,12 @@ public class AccountTest {
   }
 
   private Account getNormalAccount(final int daysOverdrawn) {
-    AccountType premium = new AccountType(false);
+    AccountType premium = AccountType.normal;
     return new Account(premium, daysOverdrawn);
   }
 
   private Account getPremiumAccount(final int daysOverdrawn) {
-    AccountType normal = new AccountType(true);
+    AccountType normal = AccountType.premium;
     return new Account(normal, daysOverdrawn);
   }
 }

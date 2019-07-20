@@ -10,7 +10,8 @@ class CustomerFactory {
     return new Company(name, email, account, companyOverdraftDiscount);
   }
 
-  public Customer createPerson(final String name, final String surname, final String email, final Account account) {
+  public Customer createPerson(final String name, final String surname, final String email,
+                               final Account account) {
     return new Person(name, surname, email, account);
   }
 }

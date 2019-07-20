@@ -46,7 +46,7 @@ class Account {
   }
 
   public double overdraftFee() {
-    return type.isPremium() ? 0.10 : 0.20;
+    return type == AccountType.premium ? 0.10 : 0.20;
   }
 
   public void setMoney(final Money money) {
@@ -58,7 +58,7 @@ class Account {
   }
 
   private double overdraftCharge() {
-    if (type.isPremium()) {
+    if (type == AccountType.premium) {
       return 10 + Math.max(0, getDaysOverdrawn() - 7);
     } else {
       return getDaysOverdrawn() * 1.75;

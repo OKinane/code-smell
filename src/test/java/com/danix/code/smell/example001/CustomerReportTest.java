@@ -15,7 +15,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCompanyCustomerDaysOverdrawn() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getCompanyCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerDaysOverdrawn(),
@@ -24,7 +24,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCompanyCustomerMoney() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getCompanyCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerMoney(),
@@ -33,7 +33,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCustomer() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomer(), is("danix dan@mail.com"));
@@ -41,7 +41,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCustomerAccountNormal() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerAccount(),
@@ -50,7 +50,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCustomerAccountPremium() {
-    Account account = getAccount(true);
+    Account account = getAccount(AccountType.premium);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerAccount(),
@@ -59,7 +59,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCustomerDaysOverdrawn() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerDaysOverdrawn(),
@@ -68,7 +68,7 @@ public class CustomerReportTest {
 
   @Test
   public void testPrintCustomerMoney() {
-    Account account = getAccount(false);
+    Account account = getAccount(AccountType.normal);
     Customer customer = getPersonCustomer(account);
     CustomerReport customerReport = new CustomerReport(customer, account);
     assertThat(customerReport.printCustomerMoney(),
