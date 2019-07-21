@@ -7,9 +7,8 @@ class Company extends Customer {
 
   private final double companyOverdraftDiscount;
 
-  public Company(final String name, final String email, final Account account,
-                 final double companyOverdraftDiscount) {
-    super(name, email, account);
+  public Company(final String name, final String email, final double companyOverdraftDiscount) {
+    super(name, email);
     this.companyOverdraftDiscount = companyOverdraftDiscount;
   }
 
@@ -19,9 +18,9 @@ class Company extends Customer {
   }
 
   @Override
-  protected double getOverdraftFees(final Money money) {
-    int overdraftDiscountDivider = account.type.isPremium() ? 2 : 1;
-    return money.amount * account.type.overdraftFee() * companyOverdraftDiscount
+  protected double getOverdraftFees(final AccountType accountType, final Money money) {
+    int overdraftDiscountDivider = accountType.isPremium() ? 2 : 1;
+    return money.amount * accountType.overdraftFee() * companyOverdraftDiscount
         / overdraftDiscountDivider;
   }
 }

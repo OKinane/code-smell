@@ -7,17 +7,17 @@ class CustomerTestUtils {
 
   private static final CustomerFactory customerFactory = new CustomerFactory();
 
-  static Account getAccount(final AccountType accountType) {
-    Account account = new Account(accountType, Money.newEuro(34.0), 9);
+  static Account getAccount(final Customer customer, final AccountType accountType) {
+    Account account = new Account(customer, accountType, Money.newEuro(34.0), 9);
     account.setIban("RO023INGB434321431241");
     return account;
   }
 
-  static Customer getCompanyCustomer(final Account account) {
-    return customerFactory.createCompany("company", "company@mail.com", account, 0.50);
+  static Customer getCompanyCustomer() {
+    return customerFactory.createCompany("company", "company@mail.com", 0.50);
   }
 
-  static Customer getPersonCustomer(final Account account) {
-    return customerFactory.createPerson("danix", "dan", "dan@mail.com", account);
+  static Customer getPersonCustomer() {
+    return customerFactory.createPerson("danix", "dan", "dan@mail.com");
   }
 }

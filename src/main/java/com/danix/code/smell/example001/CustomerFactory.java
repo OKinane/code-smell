@@ -5,13 +5,12 @@ package com.danix.code.smell.example001;
  */
 class CustomerFactory {
 
-  public Customer createCompany(final String name, final String email, final Account account,
+  public Customer createCompany(final String name, final String email,
                                 final double companyOverdraftDiscount) {
-    return new Company(name, email, account, companyOverdraftDiscount);
+    return new Company(name, email, companyOverdraftDiscount);
   }
 
-  public Customer createPerson(final String name, final String surname, final String email,
-                               final Account account) {
-    return new Person(name, surname, email, account);
+  public Customer createPerson(final String name, final String surname, final String email) {
+    return new Person(name, surname, email);
   }
 }

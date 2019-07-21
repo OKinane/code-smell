@@ -8,11 +8,14 @@ class Account {
   private static final double BASE_BANK_CHARGE = 4.5;
   public final AccountType type;
   public final int daysOverdrawn;
+  private final Customer customer;
   private String iban;
   private Money money;
 
-  public Account(final AccountType type, final Money money, final int daysOverdrawn) {
+  public Account(final Customer customer, final AccountType type, final Money money,
+                 final int daysOverdrawn) {
     super();
+    this.customer = customer;
     this.type = type;
     this.money = money;
     this.daysOverdrawn = daysOverdrawn;
@@ -34,12 +37,19 @@ class Account {
     return money.amount;
   }
 
-  public boolean isOverdraft() {
-    return money.amount < 0;
+  final public void withdraw(final Money money) {
+    Money moneyToSubtract;
+    if (isOverdraft()) {
+      moneyToSubtract = Money.newInstance(money.amount + customer.getOverdraftFees(type, money),
+                                          money.currency);
+    } else {
+      moneyToSubtract = money;
+    }
+    this.money = this.money.subtract(moneyToSubtract);
   }
 
-  public void subtract(final Money money) {
-    this.money = this.money.subtract(money);
+  private boolean isOverdraft() {
+    return money.amount < 0;
   }
 
   private double overdraftCharge() {

@@ -7,9 +7,8 @@ class Person extends Customer {
 
   private final String surname;
 
-  public Person(final String name, final String surname, final String email,
-                final Account account) {
-    super(name, email, account);
+  public Person(final String name, final String surname, final String email) {
+    super(name, email);
     this.surname = surname;
   }
 
@@ -19,7 +18,7 @@ class Person extends Customer {
   }
 
   @Override
-  protected double getOverdraftFees(final Money money) {
-    return money.amount * account.type.overdraftFee();
+  protected double getOverdraftFees(final AccountType accountType, final Money money) {
+    return money.amount * accountType.overdraftFee();
   }
 }

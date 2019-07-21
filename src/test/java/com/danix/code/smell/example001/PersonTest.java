@@ -13,36 +13,33 @@ import org.junit.Test;
 public class PersonTest {
 
   private static final Money SOME_EURO = Money.newEuro(10);
+  private final Customer personCustomer = getPersonCustomer();
 
   @Test
   public void testWithdrawPersonWithNormalAccount() {
-    Account account = getAccountByTypeAndMoney(AccountType.normal, 34.0);
-    Customer customer = getPersonCustomer(account);
-    customer.withdraw(SOME_EURO);
+    Account account = getAccountByTypeAndMoney(personCustomer, AccountType.normal, 34.0);
+    account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
   }
 
   @Test
   public void testWithdrawPersonWithNormalAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(AccountType.normal, -10.0);
-    Customer customer = getPersonCustomer(account);
-    customer.withdraw(SOME_EURO);
+    Account account = getAccountByTypeAndMoney(personCustomer, AccountType.normal, -10.0);
+    account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-22.0));
   }
 
   @Test
   public void testWithdrawPersonWithPremiumAccount() {
-    Account account = getAccountByTypeAndMoney(AccountType.premium, 34.0);
-    Customer customer = getPersonCustomer(account);
-    customer.withdraw(SOME_EURO);
+    Account account = getAccountByTypeAndMoney(personCustomer, AccountType.premium, 34.0);
+    account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
   }
 
   @Test
   public void testWithdrawPersonWithPremiumAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(AccountType.premium, -10.0);
-    Customer customer = getPersonCustomer(account);
-    customer.withdraw(SOME_EURO);
+    Account account = getAccountByTypeAndMoney(personCustomer, AccountType.premium, -10.0);
+    account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-21.0));
   }
 }
