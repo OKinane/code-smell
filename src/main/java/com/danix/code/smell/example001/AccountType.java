@@ -6,7 +6,11 @@ package com.danix.code.smell.example001;
 enum AccountType {
   premium, normal;
 
+  public boolean isPremium() {
+    return this == premium;
+  }
+
   public double overdraftFee() {
-    return this == AccountType.premium ? 0.10 : 0.20;
+    return isPremium() ? 0.10 : 0.20;
   }
 }

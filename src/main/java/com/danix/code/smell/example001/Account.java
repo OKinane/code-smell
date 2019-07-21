@@ -43,7 +43,7 @@ class Account {
   }
 
   private double overdraftCharge() {
-    if (type == AccountType.premium) {
+    if (type.isPremium()) {
       return 10 + Math.max(0, daysOverdrawn - 7);
     } else {
       return daysOverdrawn * 1.75;
