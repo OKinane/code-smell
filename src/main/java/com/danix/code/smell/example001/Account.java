@@ -8,7 +8,7 @@ class Account {
   private static final double BASE_BANK_CHARGE = 4.5;
   public final AccountType type;
   public final int daysOverdrawn;
-  private final Customer customer;
+  public final Customer customer;
   private String iban;
   private Money money;
 
