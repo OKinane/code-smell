@@ -38,10 +38,6 @@ class Account {
     return money.amount < 0;
   }
 
-  public double overdraftFee() {
-    return type == AccountType.premium ? 0.10 : 0.20;
-  }
-
   public void subtract(final Money money) {
     this.money = this.money.subtract(money);
   }

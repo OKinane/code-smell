@@ -20,6 +20,6 @@ class Person extends Customer {
 
   @Override
   protected double getOverdraftFees(final Money money) {
-    return money.amount * account.overdraftFee();
+    return money.amount * account.type.overdraftFee();
   }
 }

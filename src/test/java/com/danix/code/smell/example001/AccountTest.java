@@ -32,18 +32,6 @@ public class AccountTest {
     assertThat(account.bankCharge(), is(16.5));
   }
 
-  @Test
-  public void testOverdraftFeeNotPremium() {
-    Account account = getNormalAccount(0);
-    assertThat(account.overdraftFee(), is(0.20));
-  }
-
-  @Test
-  public void testOverdraftFeePremium() {
-    Account account = getPremiumAccount(9);
-    assertThat(account.overdraftFee(), is(0.10));
-  }
-
   private Account getNormalAccount(final int daysOverdrawn) {
     AccountType premium = AccountType.normal;
     return new Account(premium, Money.newEuro(0), daysOverdrawn);
