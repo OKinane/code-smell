@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
  */
 final class Money {
 
-  private final double amount;
-  private final Currency currency;
+  public final double amount;
+  public final Currency currency;
 
   public static Money newEuro(final double amount) {
     return new Money(amount, Currency.EUR);
@@ -20,18 +20,10 @@ final class Money {
     return new Money(amount, currency);
   }
 
-  public double getAmount() {
-    return amount;
-  }
-
-  public Currency getCurrency() {
-    return currency;
-  }
-
   @Nonnull
   public Money subtract(@Nonnull final Money money) {
     checkNotNull(money);
-    if (!money.getCurrency().equals(currency)) {
+    if (!money.currency.equals(currency)) {
       throw new RuntimeException("Can't subtract different currencies!");
     }
     return new Money(this.amount - money.amount, currency);

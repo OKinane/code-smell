@@ -15,11 +15,11 @@ class Person extends Customer {
 
   @Override
   public String getFullName() {
-    return getName() + " " + surname;
+    return name + " " + surname;
   }
 
   @Override
   protected double getOverdraftFees(final Money money) {
-    return money.getAmount() * account.overdraftFee();
+    return money.amount * account.overdraftFee();
   }
 }

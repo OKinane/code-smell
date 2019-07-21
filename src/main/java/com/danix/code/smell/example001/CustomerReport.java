@@ -18,17 +18,17 @@ class CustomerReport {
   }
 
   public String printCustomer() {
-    return String.format("%s %s", customer.getName(), customer.getEmail());
+    return String.format("%s %s", customer.name, customer.email);
   }
 
   public String printCustomerAccount() {
     return String.format("Account: IBAN: %s, Money: %.1f, Account type: %s", account.getIban(),
-                         account.getMoneyAmount(), account.getType());
+                         account.getMoneyAmount(), account.type);
   }
 
   public String printCustomerDaysOverdrawn() {
     return String.format("%s Account: IBAN: %s, Days Overdrawn: %s", customer.getFullName(),
-                         account.getIban(), account.getDaysOverdrawn());
+                         account.getIban(), account.daysOverdrawn);
   }
 
   public String printCustomerMoney() {

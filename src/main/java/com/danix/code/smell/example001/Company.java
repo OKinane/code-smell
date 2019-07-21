@@ -15,13 +15,13 @@ class Company extends Customer {
 
   @Override
   public String getFullName() {
-    return getName();
+    return name;
   }
 
   @Override
   protected double getOverdraftFees(final Money money) {
-    int overdraftDiscountDivider = account.getType() == AccountType.premium ? 2 : 1;
-    return money.getAmount() * account.overdraftFee() * companyOverdraftDiscount
+    int overdraftDiscountDivider = account.type == AccountType.premium ? 2 : 1;
+    return money.amount * account.overdraftFee() * companyOverdraftDiscount
         / overdraftDiscountDivider;
   }
 }

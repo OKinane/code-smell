@@ -6,8 +6,8 @@ package com.danix.code.smell.example001;
 class Account {
 
   private static final double BASE_BANK_CHARGE = 4.5;
-  private final AccountType type;
-  private final int daysOverdrawn;
+  public final AccountType type;
+  public final int daysOverdrawn;
   private String iban;
   private Money money;
 
@@ -22,10 +22,6 @@ class Account {
     return BASE_BANK_CHARGE + overdraftCharge();
   }
 
-  public int getDaysOverdrawn() {
-    return daysOverdrawn;
-  }
-
   public String getIban() {
     return iban;
   }
@@ -35,15 +31,11 @@ class Account {
   }
 
   public double getMoneyAmount() {
-    return money.getAmount();
-  }
-
-  public AccountType getType() {
-    return type;
+    return money.amount;
   }
 
   public boolean isOverdraft() {
-    return money.getAmount() < 0;
+    return money.amount < 0;
   }
 
   public double overdraftFee() {
@@ -56,9 +48,9 @@ class Account {
 
   private double overdraftCharge() {
     if (type == AccountType.premium) {
-      return 10 + Math.max(0, getDaysOverdrawn() - 7);
+      return 10 + Math.max(0, daysOverdrawn - 7);
     } else {
-      return getDaysOverdrawn() * 1.75;
+      return daysOverdrawn * 1.75;
     }
   }
 }
