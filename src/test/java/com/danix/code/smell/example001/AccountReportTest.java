@@ -1,8 +1,6 @@
 package com.danix.code.smell.example001;
 
-import static com.danix.code.smell.example001.CustomerTestUtils.getAccount;
-import static com.danix.code.smell.example001.CustomerTestUtils.getCompanyCustomer;
-import static com.danix.code.smell.example001.CustomerTestUtils.getPersonCustomer;
+import static com.danix.code.smell.example001.AccountTestUtils.getAccount;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -15,7 +13,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintAccount_PersonCustomerNormalAccountType() {
-    Customer customer = getPersonCustomer();
+    Customer customer = CustomerTestUtils.person;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printAccount(),
@@ -24,7 +22,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintAccount_PersonCustomerPremiumAccountTye() {
-    Customer customer = getPersonCustomer();
+    Customer customer = CustomerTestUtils.person;
     Account account = getAccount(customer, AccountType.premium);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printAccount(),
@@ -33,7 +31,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintCustomer_PersonCustomerNormalAccountType() {
-    Customer customer = getPersonCustomer();
+    Customer customer = CustomerTestUtils.person;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printCustomer(), is("danix dan@mail.com"));
@@ -41,7 +39,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintDaysOverdrawn_CompanyCustomerNormalAccountType() {
-    Customer customer = getCompanyCustomer();
+    Customer customer = CustomerTestUtils.company;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printDaysOverdrawn(),
@@ -50,7 +48,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintDaysOverdrawn_PersonCustomerNormalAccountType() {
-    Customer customer = getPersonCustomer();
+    Customer customer = CustomerTestUtils.person;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printDaysOverdrawn(),
@@ -59,7 +57,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintMoney_CompanyCustomerNormalAccountType() {
-    Customer customer = getCompanyCustomer();
+    Customer customer = CustomerTestUtils.company;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printMoney(),
@@ -68,7 +66,7 @@ public class AccountReportTest {
 
   @Test
   public void testPrintMoney_PersonCustomerNormalAccountType() {
-    Customer customer = getPersonCustomer();
+    Customer customer = CustomerTestUtils.person;
     Account account = getAccount(customer, AccountType.normal);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printMoney(),

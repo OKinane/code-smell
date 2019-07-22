@@ -1,7 +1,6 @@
 package com.danix.code.smell.example001;
 
 import static com.danix.code.smell.example001.AccountTestUtils.getAccountByTypeAndMoney;
-import static com.danix.code.smell.example001.CustomerTestUtils.getPersonCustomer;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -13,7 +12,7 @@ import org.junit.Test;
 public class PersonTest {
 
   private static final Money SOME_EURO = Money.newEuro(10);
-  private final Customer personCustomer = getPersonCustomer();
+  private final Customer personCustomer = CustomerTestUtils.person;
 
   @Test
   public void testWithdrawPersonWithNormalAccount() {
