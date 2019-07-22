@@ -1,6 +1,5 @@
 package com.danix.code.smell.example001;
 
-import static com.danix.code.smell.example001.AccountTestUtils.getAccountByTypeAndMoney;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -16,28 +15,28 @@ public class CompanyTest {
 
   @Test
   public void testWithdrawCompanyWithNormalAccount() {
-    Account account = getAccountByTypeAndMoney(companyCustomer, AccountType.normal, 34);
+    Account account = AccountTestUtils.getAccount(companyCustomer, AccountType.normal, 34);
     account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
   }
 
   @Test
   public void testWithdrawCompanyWithNormalAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(companyCustomer, AccountType.normal, -10);
+    Account account = AccountTestUtils.getAccount(companyCustomer, AccountType.normal, -10);
     account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-21.0));
   }
 
   @Test
   public void testWithdrawCompanyWithPremiumAccount() {
-    Account account = getAccountByTypeAndMoney(companyCustomer, AccountType.premium, 34);
+    Account account = AccountTestUtils.getAccount(companyCustomer, AccountType.premium, 34);
     account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(24.0));
   }
 
   @Test
   public void testWithdrawCompanyWithPremiumAccountAndOverdraft() {
-    Account account = getAccountByTypeAndMoney(companyCustomer, AccountType.premium, -10);
+    Account account = AccountTestUtils.getAccount(companyCustomer, AccountType.premium, -10);
     account.withdraw(SOME_EURO);
     assertThat(account.getMoneyAmount(), is(-20.25));
   }

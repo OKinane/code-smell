@@ -5,26 +5,25 @@ package com.danix.code.smell.example001;
  */
 class AccountTestUtils {
 
-  static Account getAccount(final Customer customer, final AccountType accountType) {
-    Account account = new Account(customer, accountType, Money.newEuro(34.0), 9);
+  static Account getAccount(final Customer customer, final AccountType accountType,
+                            final double money) {
+    return getAccount(customer, accountType, money, 0);
+  }
+
+  static Account getAccount(final AccountType accountType, final int daysOverdrawn) {
+    return getAccount(CustomerTestUtils.person, accountType, 0, daysOverdrawn);
+  }
+
+  static Account getAccountWithIban(final Customer customer, final AccountType accountType,
+                                    final double money) {
+    Account account = getAccount(customer, accountType, money, 9);
     account.setIban("RO023INGB434321431241");
     return account;
   }
 
-  static Account getAccountByTypeAndMoney(final Customer customer, final AccountType accountType,
-                                          final double money) {
-    Account account = new Account(customer, accountType, Money.newEuro(money), 9);
-    account.setIban("RO023INGB434321431241");
-    return account;
+  private static Account getAccount(final Customer customer, final AccountType accountType,
+                                    final double money, final int daysOverdrawn) {
+    return new Account(customer, accountType, Money.newEuro(money), daysOverdrawn);
   }
 
-  static Account getNormalAccount(final int daysOverdrawn) {
-    AccountType premium = AccountType.normal;
-    return new Account(CustomerTestUtils.person, premium, Money.newEuro(0), daysOverdrawn);
-  }
-
-  static Account getPremiumAccount(final int daysOverdrawn) {
-    AccountType normal = AccountType.premium;
-    return new Account(CustomerTestUtils.person, normal, Money.newEuro(0), daysOverdrawn);
-  }
 }

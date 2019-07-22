@@ -1,6 +1,5 @@
 package com.danix.code.smell.example001;
 
-import static com.danix.code.smell.example001.AccountTestUtils.getAccount;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -14,7 +13,7 @@ public class AccountReportTest {
   @Test
   public void testPrintAccount_PersonCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.person;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.normal, 34.0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printAccount(),
                is("Account: IBAN: RO023INGB434321431241, Money: 34.0, Account type: normal"));
@@ -23,7 +22,7 @@ public class AccountReportTest {
   @Test
   public void testPrintAccount_PersonCustomerPremiumAccountTye() {
     Customer customer = CustomerTestUtils.person;
-    Account account = getAccount(customer, AccountType.premium);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.premium, 34.0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printAccount(),
                is("Account: IBAN: RO023INGB434321431241, Money: 34.0, Account type: premium"));
@@ -32,7 +31,7 @@ public class AccountReportTest {
   @Test
   public void testPrintCustomer_PersonCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.person;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccount(customer, AccountType.normal, 0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printCustomer(), is("danix dan@mail.com"));
   }
@@ -40,7 +39,7 @@ public class AccountReportTest {
   @Test
   public void testPrintDaysOverdrawn_CompanyCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.company;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.normal, 0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printDaysOverdrawn(),
                is("company Account: IBAN: RO023INGB434321431241, Days Overdrawn: 9"));
@@ -49,7 +48,7 @@ public class AccountReportTest {
   @Test
   public void testPrintDaysOverdrawn_PersonCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.person;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.normal, 0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printDaysOverdrawn(),
                is("danix dan Account: IBAN: RO023INGB434321431241, Days Overdrawn: 9"));
@@ -58,7 +57,7 @@ public class AccountReportTest {
   @Test
   public void testPrintMoney_CompanyCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.company;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.normal, 34.0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printMoney(),
                is("company Account: IBAN: RO023INGB434321431241, Money: 34.0"));
@@ -67,7 +66,7 @@ public class AccountReportTest {
   @Test
   public void testPrintMoney_PersonCustomerNormalAccountType() {
     Customer customer = CustomerTestUtils.person;
-    Account account = getAccount(customer, AccountType.normal);
+    Account account = AccountTestUtils.getAccountWithIban(customer, AccountType.normal, 34.0);
     AccountReport accountReport = new AccountReport(account);
     assertThat(accountReport.printMoney(),
                is("danix dan Account: IBAN: RO023INGB434321431241, Money: 34.0"));
