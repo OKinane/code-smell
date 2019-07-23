@@ -15,29 +15,39 @@ public class PersonTest {
 
   @Test
   public void testWithdrawPersonWithNormalAccount() {
-    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.normal, 34.0);
+    double accountMoney = 34.0;
+    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.normal, accountMoney);
     account.withdraw(SOME_EURO);
-    assertThat(account.getMoneyAmount(), is(24.0));
+    double expectedAmount = accountMoney - SOME_EURO.amount;
+    assertThat(account.getMoneyAmount(), is(expectedAmount));
   }
 
   @Test
   public void testWithdrawPersonWithNormalAccountAndOverdraft() {
-    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.normal, -10.0);
+    double accountMoney = -10.0;
+    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.normal, accountMoney);
     account.withdraw(SOME_EURO);
-    assertThat(account.getMoneyAmount(), is(-22.0));
+    double expectedAmount = accountMoney - (SOME_EURO.amount + SOME_EURO.amount * 0.20);
+    assertThat(account.getMoneyAmount(), is(expectedAmount));
   }
 
   @Test
   public void testWithdrawPersonWithPremiumAccount() {
-    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.premium, 34.0);
+    double accountMoney = 34.0;
+    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.premium,
+                                                  accountMoney);
     account.withdraw(SOME_EURO);
-    assertThat(account.getMoneyAmount(), is(24.0));
+    double expectedAmount = accountMoney - SOME_EURO.amount;
+    assertThat(account.getMoneyAmount(), is(expectedAmount));
   }
 
   @Test
   public void testWithdrawPersonWithPremiumAccountAndOverdraft() {
-    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.premium, -10.0);
+    double accountMoney = -10.0;
+    Account account = AccountTestUtils.getAccount(personCustomer, AccountType.premium,
+                                                  accountMoney);
     account.withdraw(SOME_EURO);
-    assertThat(account.getMoneyAmount(), is(-21.0));
+    double expectedAmount = accountMoney - (SOME_EURO.amount + SOME_EURO.amount * 0.10);
+    assertThat(account.getMoneyAmount(), is(expectedAmount));
   }
 }

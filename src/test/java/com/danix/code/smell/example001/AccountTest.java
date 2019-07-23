@@ -23,13 +23,16 @@ public class AccountTest {
   @Test
   public void testBankchargePremiumLessThanAWeek() {
     Account account = AccountTestUtils.getAccount(AccountType.premium, 5);
-    assertThat(account.bankCharge(), is(14.5));
+    double expectedBankCharge = BASE_BANKCHARGE + 10;
+    assertThat(account.bankCharge(), is(expectedBankCharge));
   }
 
   @Test
   public void testBankchargePremiumMoreThanAWeek() {
-    Account account = AccountTestUtils.getAccount(AccountType.premium, 9);
-    assertThat(account.bankCharge(), is(16.5));
+    int daysOverdrawn = 9;
+    Account account = AccountTestUtils.getAccount(AccountType.premium, daysOverdrawn);
+    double expectedBankCharge = BASE_BANKCHARGE + 10 + (daysOverdrawn - 7);
+    assertThat(account.bankCharge(), is(expectedBankCharge));
   }
 
 }
